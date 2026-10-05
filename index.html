@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CropCycle | Climate-Smart Crop Rotation</title>
+  <meta name="description" content="CropCycle is a NASA Space Apps 2026 prototype that combines Earth observation data with farm context to suggest climate-resilient crop rotations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top"><span class="logo-mark">C</span><span>CropCycle</span></a>
+    <nav><a href="#how">How it works</a><a href="#data">NASA data</a><a href="#demo">Demo</a><a href="#impact">Impact</a></nav>
+    <a class="nav-cta" href="#demo">Try prototype</a>
+  </header>
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow">NASA Space Apps Challenge 2026 · Field Shift</span>
+        <h1>Smarter crop rotations for a changing climate.</h1>
+        <p class="lead">CropCycle turns NASA Earth observation signals and simple farm inputs into an explainable crop-rotation plan designed to improve resilience, soil health, and water efficiency.</p>
+        <div class="hero-actions"><a class="btn primary" href="#demo">Build a crop plan</a><a class="btn secondary" href="#data">See the data flow</a></div>
+        <div class="hero-meta"><span>Built by NaviXor</span><span>•</span><span>Prototype for rapid farmer decision support</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-header"><span>Farm snapshot</span><span class="status">Live prototype</span></div>
+        <div class="metric-grid">
+          <div class="metric"><small>Soil moisture</small><strong>Moderate</strong><span>SMAP signal</span></div>
+          <div class="metric"><small>Rainfall trend</small><strong>Below avg.</strong><span>GPM / POWER</span></div>
+          <div class="metric"><small>Heat stress</small><strong>Elevated</strong><span>POWER climate</span></div>
+          <div class="metric"><small>Vegetation</small><strong>Stable</strong><span>MODIS proxy</span></div>
+        </div>
+        <div class="recommend-box"><span>Suggested next crop</span><strong>Chickpea</strong><p>Lower water demand + legume benefit after rice.</p></div>
+      </div>
+    </section>
+
+    <section class="stats-wrap">
+      <div><strong>4</strong><span>NASA-derived signal families</span></div>
+      <div><strong>3</strong><span>Decision goals balanced</span></div>
+      <div><strong>&lt; 1 min</strong><span>Prototype planning flow</span></div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="section-heading"><span class="eyebrow">The idea</span><h2>From satellite signals to a practical rotation.</h2><p>CropCycle combines environmental context with farmer priorities, then ranks candidate crops using a transparent resilience score.</p></div>
+      <div class="steps">
+        <article><span>01</span><h3>Describe the farm</h3><p>Choose location, current crop, soil type, season, irrigation access, and the farmer's main goal.</p></article>
+        <article><span>02</span><h3>Read NASA signals</h3><p>The prototype maps farm conditions to rainfall, temperature, soil-moisture, and vegetation indicators inspired by NASA datasets.</p></article>
+        <article><span>03</span><h3>Score crop options</h3><p>Each crop receives suitability scores for water demand, climate tolerance, soil benefit, and rotation compatibility.</p></article>
+        <article><span>04</span><h3>Explain the choice</h3><p>Farmers see not only a recommendation, but also the reasons, trade-offs, and alternatives.</p></article>
+      </div>
+    </section>
+
+    <section class="section data-section" id="data">
+      <div class="section-heading"><span class="eyebrow">NASA data strategy</span><h2>Earth observations become decision signals.</h2></div>
+      <div class="data-grid">
+        <article><div class="icon">☀</div><h3>NASA POWER</h3><p>Temperature, precipitation, humidity and solar-climate context used to estimate seasonal stress.</p><span class="tag">Climate</span></article>
+        <article><div class="icon">◒</div><h3>SMAP</h3><p>Soil-moisture information used to identify dry, normal, or saturated field conditions.</p><span class="tag">Soil moisture</span></article>
+        <article><div class="icon">☂</div><h3>GPM IMERG</h3><p>Precipitation patterns used to understand rainfall availability and drought pressure.</p><span class="tag">Rainfall</span></article>
+        <article><div class="icon">⌁</div><h3>MODIS</h3><p>Vegetation and land-surface indicators used as a proxy for crop and landscape condition.</p><span class="tag">Vegetation</span></article>
+      </div>
+      <p class="note"><strong>Prototype note:</strong> this demo uses a lightweight decision model with representative NASA-derived indicators so the user flow can be demonstrated reliably during the hackathon. The production roadmap connects the same interface to live APIs and geospatial services.</p>
+    </section>
+
+    <section class="section demo-section" id="demo">
+      <div class="section-heading"><span class="eyebrow">Interactive prototype</span><h2>Create a climate-smart rotation plan.</h2><p>Adjust the farm profile and CropCycle will rank candidate crops with an explainable resilience score.</p></div>
+      <div class="demo-shell">
+        <form id="plannerForm" class="form-card">
+          <div class="field-row">
+            <label>Region<select id="region"><option value="dhaka">Dhaka / Central Bangladesh</option><option value="rajshahi">Rajshahi / Northwest</option><option value="khulna">Khulna / Southwest</option><option value="sylhet">Sylhet / Northeast</option></select></label>
+            <label>Current crop<select id="currentCrop"><option value="rice">Rice</option><option value="wheat">Wheat</option><option value="maize">Maize</option><option value="potato">Potato</option><option value="vegetables">Vegetables</option></select></label>
+          </div>
+          <div class="field-row">
+            <label>Soil type<select id="soil"><option value="loam">Loam</option><option value="clay">Clay</option><option value="sandy">Sandy</option><option value="silt">Silt</option></select></label>
+            <label>Season<select id="season"><option value="rabi">Rabi / Dry season</option><option value="kharif">Kharif / Monsoon</option><option value="pre">Pre-monsoon</option></select></label>
+          </div>
+          <label>Primary farmer priority<select id="priority"><option value="water">Use less water</option><option value="soil">Improve soil health</option><option value="risk">Reduce climate risk</option><option value="income">Balance resilience and income</option></select></label>
+          <label>Irrigation access<select id="irrigation"><option value="limited">Limited</option><option value="moderate">Moderate</option><option value="reliable">Reliable</option></select></label>
+          <button class="btn primary full" type="submit">Generate rotation plan</button>
+        </form>
+        <div class="result-card" id="resultCard">
+          <div class="result-top">
+            <div><span class="eyebrow">Recommended next crop</span><h3 id="cropName">Chickpea</h3></div>
+            <div class="score-ring"><strong id="score">88</strong><span>/100</span></div>
+          </div>
+          <p id="summary">A strong dry-season option after rice because it uses less water and can support soil nitrogen through legume rotation.</p>
+          <div class="reason-grid" id="reasons"></div>
+          <div class="rotation-strip"><span id="rotation1">Rice</span><b>→</b><span id="rotation2">Chickpea</span><b>→</b><span id="rotation3">Maize</span></div>
+          <div class="alt-box"><small>Alternative</small><strong id="alternative">Mustard</strong><span id="altWhy">Good water efficiency with moderate soil benefit.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="impact-panel">
+        <div><span class="eyebrow">Why CropCycle matters</span><h2>Make climate data useful at the moment a farmer must decide.</h2></div>
+        <div class="impact-list">
+          <p><strong>Water resilience</strong><span>Shift away from high-demand crops when moisture and rainfall indicators are unfavorable.</span></p>
+          <p><strong>Soil recovery</strong><span>Encourage legumes and diversified rotations that reduce repeated nutrient pressure.</span></p>
+          <p><strong>Explainable decisions</strong><span>Show the logic behind each recommendation instead of giving a black-box answer.</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div><strong>CropCycle</strong><span>NASA Space Apps Challenge 2026 · Team NaviXor</span></div>
+    <a href="https://github.com/1sazzad/CropCycle" target="_blank" rel="noreferrer">GitHub repository ↗</a>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
